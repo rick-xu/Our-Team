@@ -11,7 +11,7 @@ window.addEventListener('load',function(){
 		var size = getWindowSize();
 		team.style.height = size.height + 'px';
 		team.style.width = size.width + 'px';
-		//moveBackground(team);
+		moveBackground(team);
 		showName();
 	})();
 });
@@ -30,7 +30,7 @@ function moveBackground(node){
 		if(Math.abs(x)>xRange || Math.abs(y)>yRange){
 			clearInterval(IdofInterval);
 		}
-	},100);
+	},200);
 }
 
 
