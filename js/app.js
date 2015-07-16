@@ -50,13 +50,48 @@ function showName(){
 
 	var windowSize = getWindowSize();
 
-	cxt.font="lighter 70px Arial";
+	cxt.font="lighter 70px sans-serif";
 	cxt.textAlign = "center";
 	cxt.textBaseline = "middle";
 	cxt.fillStyle = '#fff';
 	var i = 0;
 	var x = windowSize.width/2;
 	var y = windowSize.height/2;
+	var id;
+
+	!function draw(){
+		if(i<100){
+			cxt.clearRect(x-70,y-70,300,300);
+			cxt.fillText(''+(i/100).toFixed(2), x, y);
+		}else if(i==100){
+			cxt.clearRect(x-70,y-70,300,300);
+			cxt.fillText(''+(i/100).toFixed(0), x, y);
+		}else if(i==101){
+			cxt.clearRect(x-70,y-70,300,300);
+			cxt.fillText('ZTO', x, y);
+		}else if(i == 102){
+			cxt.clearRect(x-70,y-70,300,300);
+			cxt.fillText('Zero To One', x, y);
+		}else if(i == 103){
+			cxt.font = 'lighter 32px Arial'; 
+			cxt.fillText('We are on the way of ZTO!', x, y+140);
+			clearTimeout(id);
+		}
+
+
+		if(i<5){
+			id = setTimeout(draw,500);
+		}else if(i<95){
+			id = setTimeout(draw,50);
+		}else if(i<101){
+			id = setTimeout(draw,500);
+		}else{
+			id = setTimeout(draw,1000);
+		}
+		i++;
+	}();
+
+/*
 	(function(){
 		var id0_5 = setInterval(function(){
 			cxt.clearRect(x-70,y-70,300,300);
@@ -105,6 +140,6 @@ function showName(){
 			}
 		},500);
 	})();
+
+*/
 }
-
-
