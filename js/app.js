@@ -11,7 +11,7 @@ window.addEventListener('load',function(){
 		var size = getWindowSize();
 		team.style.height = size.height + 'px';
 		team.style.width = size.width + 'px';
-		moveBackground(team);
+		moveBackground(document.body);
 		showName();
 	})();
 });
@@ -23,12 +23,21 @@ function moveBackground(node){
 	var xRange = size.width * 0.2; 
 	var yRange = size.height*0.2;
 	var x=0,y=0;
+	var moveToLeft = true;
 	var IdofInterval = setInterval(function(){
 		node.style.backgroundPosition = x+'px '+y+'px';
-		x -= 1;
-		y -=1;
-		if(Math.abs(x)>xRange || Math.abs(y)>yRange){
-			clearInterval(IdofInterval);
+		if(moveToLeft==true){
+			x -= 1;
+			y -= 1;
+			if(Math.abs(x)>xRange || Math.abs(y)>yRange){
+				moveToLeft = !moveToLeft;
+			}
+		}else{
+			x += 1;
+			y += 1;
+			if(Math.abs(x)==0 || Math.abs(y) == 0){
+				moveToLeft = !moveToLeft;
+			}
 		}
 	},200);
 }
@@ -41,7 +50,7 @@ function showName(){
 
 	var windowSize = getWindowSize();
 
-	cxt.font="bold 70px Arial";
+	cxt.font="lighter 70px Arial";
 	cxt.textAlign = "center";
 	cxt.textBaseline = "middle";
 	cxt.fillStyle = '#fff';
@@ -73,14 +82,20 @@ function showName(){
 									i++;
 									if(i == 101){
 										clearInterval(id100);
-										setTimeout(function(){
-											cxt.clearRect(x-70,y-70,300,300);
-											cxt.fillText('ZTO', x, y);
+										(function(){
 											setTimeout(function(){
 												cxt.clearRect(x-70,y-70,300,300);
-												cxt.fillText('Zero To One', x, y);
+												cxt.fillText('ZTO', x, y);
+												setTimeout(function(){
+													cxt.clearRect(x-70,y-70,300,300);
+													cxt.fillText('Zero To One', x, y);
+													setTimeout(function(){
+														cxt.font = 'lighter 32px Arial'; 
+														cxt.fillText('We are on the way of ZTO!', x, y+140);
+													},1000);
+												},1000);
 											},1000);
-										},1000);
+										})();
 									}
 								},400);							
 							})();
