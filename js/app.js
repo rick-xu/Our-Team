@@ -61,19 +61,19 @@ function showName(){
 
 	!function draw(){
 		if(i<100){
-			cxt.clearRect(x-70,y-70,300,300);
+			cxt.clearRect(x-100,y-100,300,200);
 			cxt.fillText(''+(i/100).toFixed(2), x, y);
 		}else if(i==100){
-			cxt.clearRect(x-70,y-70,300,300);
+			cxt.clearRect(x-100,y-100,300,200);
 			cxt.fillText(''+(i/100).toFixed(0), x, y);
 		}else if(i==101){
-			cxt.clearRect(x-70,y-70,300,300);
-			cxt.fillText('ZTO', x, y);
+			cxt.clearRect(x-100,y-100,300,200);
+			cxt.fillText('Z T O', x, y);
 		}else if(i == 102){
-			cxt.clearRect(x-70,y-70,300,300);
+			cxt.clearRect(x-100,y-100,300,200);
 			cxt.fillText('Zero To One', x, y);
 		}else if(i == 103){
-			cxt.font = 'lighter 32px Arial'; 
+			cxt.font = 'lighter 32px sans-serif'; 
 			cxt.fillText('We are on the way of ZTO!', x, y+140);
 			clearTimeout(id);
 		}
@@ -90,56 +90,4 @@ function showName(){
 		}
 		i++;
 	}();
-
-/*
-	(function(){
-		var id0_5 = setInterval(function(){
-			cxt.clearRect(x-70,y-70,300,300);
-			cxt.fillText(''+(i/100).toFixed(2), x, y);
-			i++;
-			if(i == 5){
-				clearInterval(id0_5);
-				(function(){
-					var id0_95 = setInterval(function(){
-						cxt.clearRect(x-70,y-70,300,300);
-						cxt.fillText(''+(i/100).toFixed(2), x, y);
-						i++;
-						if(i==95){
-							clearInterval(id0_95);
-							(function(){
-								var id100 = setInterval(function(){
-									cxt.clearRect(x-70,y-70,300,300);
-									if(i==100){
-										cxt.fillText(''+(i/100).toFixed(0), x, y);	
-									}else{
-										cxt.fillText(''+(i/100).toFixed(2), x, y);	
-									}
-									i++;
-									if(i == 101){
-										clearInterval(id100);
-										(function(){
-											setTimeout(function(){
-												cxt.clearRect(x-70,y-70,300,300);
-												cxt.fillText('ZTO', x, y);
-												setTimeout(function(){
-													cxt.clearRect(x-70,y-70,300,300);
-													cxt.fillText('Zero To One', x, y);
-													setTimeout(function(){
-														cxt.font = 'lighter 32px Arial'; 
-														cxt.fillText('We are on the way of ZTO!', x, y+140);
-													},1000);
-												},1000);
-											},1000);
-										})();
-									}
-								},400);							
-							})();
-						}
-					},50);
-				})();
-			}
-		},500);
-	})();
-
-*/
 }
