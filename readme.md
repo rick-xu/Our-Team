@@ -4,8 +4,8 @@
 + [阿耀](https://github.com/FutureInCode)
 + [lalawow](https://github.com/lalawow)
 + [wy-ei](https://github.com/wy-ei)
-+ [侯鹏]
-+ []
++ [小鹏](https://github.com/Sxnynamehoupeng)
++ [Marcy](https://github.com/ZeroToOneMarcy)
 
 ### 任务目的
 
